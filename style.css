@@ -24,7 +24,7 @@ body {
 
 ::-webkit-scrollbar { width: 0; }
 
-/* ── NAVIGATION ───────────────────────────────────────────── */
+/* ── NAVIGATION (Global Header) ───────────────────────────── */
 nav {
   position: fixed;
   top: 0;
@@ -403,7 +403,6 @@ nav {
   font-weight: 500;
 }
 
-/* Restored Expected Gradient Button */
 .btn-big {
   display: inline-flex;
   align-items: center;
@@ -425,23 +424,27 @@ nav {
   box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
 }
 
-/* FIXED: No Black Box & Proper Layout */
+/* THE BLACK BOX REMOVAL & LAYOUT FIX */
 .c-links {
+  /* Resetting everything inherited from the global 'nav' selector */
+  position: static !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  height: auto !important;
+  width: 100% !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  z-index: auto !important;
+
+  /* Proper Layout */
   display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
   gap: 12px !important;
-  width: 100% !important;
   list-style: none !important;
   margin-top: 1rem !important;
-  padding: 0 !important;
-  
-  /* CRITICAL: Kill Inherited Nav Styles */
-  background: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-  position: static !important;
-  height: auto !important;
 }
 
 .c-link {
@@ -456,6 +459,7 @@ nav {
   text-decoration: none;
   font-size: 0.85rem;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .c-link:hover {
