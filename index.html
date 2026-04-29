@@ -9,11 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ── NAVIGATION ─────────────────────────────────── -->
+  <!-- NAV -->
   <nav id="navbar">
     <div class="nav-logo" onclick="scrollTo(0,0)">Divyanshi Singh</div>
     <ul class="nav-links">
@@ -23,7 +23,7 @@
     </ul>
   </nav>
 
-  <!-- ── HERO ───────────────────────────────────────── -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-glow" aria-hidden="true">
       <div class="glow-ring"></div>
@@ -33,15 +33,15 @@
       <div class="hero-blob"></div>
     </div>
 
-    <!-- Profile Picture -->
     <div class="profile-wrap">
       <div class="profile-ring">
         <img
           class="profile-img"
           src="assets/profile.jpg"
-          alt="Divyanshi Singh — Content Creator and AI Writer"
+          alt="Divyanshi Singh"
+          onerror="this.style.opacity='0'"
         />
-        <span class="profile-status" aria-label="Available for opportunities"></span>
+        <span class="profile-status"></span>
       </div>
     </div>
 
@@ -53,7 +53,7 @@
     <h1>Hello, I'm <em>Divyanshi</em></h1>
     <p class="hero-sub">Storyteller. Strategist. Making AI feel human.</p>
 
-    <div class="hero-roles" aria-label="Roles">
+    <div class="hero-roles">
       <span class="chip">Content Creator</span>
       <span class="chip">Creative Director</span>
       <span class="chip">AI Writer</span>
@@ -67,12 +67,12 @@
     </p>
 
     <div class="hero-btns">
-      <a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" class="btn-grad" role="button">Read My Work</a>
-      <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-ghost" role="button">Get In Touch →</a>
+      <a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" class="btn-grad">Read My Work</a>
+      <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-ghost">Get In Touch →</a>
     </div>
   </section>
 
-  <!-- ── MARQUEE ─────────────────────────────────────── -->
+  <!-- MARQUEE -->
   <div class="marquee-wrap" aria-hidden="true">
     <div class="marquee-inner">
       <span>AI Content Writing</span><span class="dot">✦</span>
@@ -83,7 +83,6 @@
       <span>Digital Marketing</span><span class="dot">✦</span>
       <span>Creative Direction</span><span class="dot">✦</span>
       <span>WordPress</span><span class="dot">✦</span>
-      <!-- Duplicate for seamless loop -->
       <span>AI Content Writing</span><span class="dot">✦</span>
       <span>Tech Journalism</span><span class="dot">✦</span>
       <span>Brand Storytelling</span><span class="dot">✦</span>
@@ -95,20 +94,19 @@
     </div>
   </div>
 
-  <!-- ── STATS ───────────────────────────────────────── -->
-  <div class="stats" aria-label="Key stats">
+  <!-- STATS -->
+  <div class="stats">
     <div class="stat"><span class="stat-num">3</span><span class="stat-label">Publications</span></div>
     <div class="stat"><span class="stat-num">33+</span><span class="stat-label">Articles Published</span></div>
     <div class="stat"><span class="stat-num">2</span><span class="stat-label">Years of Writing</span></div>
     <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Ideas Brewing</span></div>
   </div>
 
-  <!-- ── ABOUT ───────────────────────────────────────── -->
+  <!-- ABOUT -->
   <section class="full-bleed grey" id="about">
     <p class="sec-eyebrow">About Me</p>
     <h2 class="sec-title">The person behind the content.</h2>
     <p class="sec-sub">A creative thinker who bridges the gap between technology and human storytelling.</p>
-
     <div class="about-grid">
       <div class="about-text">
         <p>I'm Divyanshi — a content writer and digital strategist with a deep interest in how AI is reshaping the way we communicate.</p>
@@ -116,7 +114,6 @@
         <p>I completed my studies in <strong>Mass Media &amp; Communication (BAMMC)</strong> at <strong>Thakur College of Science and Commerce</strong>, which sharpened my instincts for advertising, brand storytelling, and audience-first thinking.</p>
         <p>Looking for: <span class="grad-word">Marketing · Copywriting · Digital Marketing · Content Strategy Internships</span></p>
       </div>
-
       <div class="skills-col">
         <div class="skill-group">
           <p class="sg-title">Content &amp; Writing</p>
@@ -150,32 +147,29 @@
     </div>
   </section>
 
-  <!-- ── PUBLICATIONS ────────────────────────────────── -->
+  <!-- PUBLICATIONS -->
   <section class="full-bleed dark">
     <p class="sec-eyebrow">Where I Write</p>
     <h2 class="sec-title">3 Publications</h2>
     <p class="sec-sub">My work lives across three platforms — each covering a different facet of tech, AI, and digital culture.</p>
-
     <div class="pub-strip">
       <article class="pub-card">
         <span class="pub-count">01</span>
-        <div class="pub-icon" aria-hidden="true">🤖</div>
+        <div class="pub-icon">🤖</div>
         <h3 class="pub-name">Aadhunik.ai</h3>
         <p class="pub-desc">AI tutorials, tool breakdowns, and insights that make cutting-edge tech accessible to everyday readers. My primary platform for long-form AI content.</p>
         <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Articles →</a>
       </article>
-
       <article class="pub-card">
         <span class="pub-count">02</span>
-        <div class="pub-icon" aria-hidden="true">📰</div>
+        <div class="pub-icon">📰</div>
         <h3 class="pub-name">Sociobits</h3>
         <p class="pub-desc">Startup and technology news for the next generation. I cover AI launches, funding rounds, and the companies reshaping the digital world.</p>
         <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Articles →</a>
       </article>
-
       <article class="pub-card">
         <span class="pub-count">03</span>
-        <div class="pub-icon" aria-hidden="true">💬</div>
+        <div class="pub-icon">💬</div>
         <h3 class="pub-name">AI ChatMates</h3>
         <p class="pub-desc">Exploring the world of AI companions, chatbots, and conversational intelligence — writing that sits at the intersection of AI and human connection.</p>
         <a href="https://aichatmates.com/author/divyanshi/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Articles →</a>
@@ -183,14 +177,12 @@
     </div>
   </section>
 
-  <!-- ── FEATURED WRITING ────────────────────────────── -->
+  <!-- WRITING -->
   <section class="full-bleed grey" id="writing">
     <p class="sec-eyebrow">Latest Articles</p>
     <h2 class="sec-title">Featured Writing</h2>
     <p class="sec-sub">Click any article to preview it, then jump to the full read.</p>
-
-    <div class="articles-grid" id="artGrid" role="list"></div>
-
+    <div class="articles-grid" id="artGrid"></div>
     <div class="see-more-row">
       <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="btn-grad">All Aadhunik Articles</a>
       <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Sociobits →</a>
@@ -199,59 +191,56 @@
     </div>
   </section>
 
-  <!-- ── CONTACT SECTION (MODIFIED TAG) ── -->
-<section class="full-bleed dark" id="contact">
-  <p class="sec-eyebrow">Get In Touch</p>
-  <div class="contact-scene">
-    <div class="contact-card">
-      <h2>Let's Create Together.</h2>
-      <p>I'm looking for internship opportunities in Marketing, Copywriting, Digital Marketing, and Content Strategy.</p>
-      <p>If you're building something interesting, I'd love to be part of it.</p>
-      <span class="contact-email">divyanshisinghh01@gmail.com</span>
-      <a
-        href="mailto:divyanshisinghh01@gmail.com?subject=Hey%20Divyanshi%2C%20let's%20connect!&body=Hi%20Divyanshi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20opportunity%20with%20you."
-        class="btn-big"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Say Hello →</a>
-
-      <!-- Changed from <nav> to <div> to stop the black box error -->
-      <div class="c-links" aria-label="Social and publication links">
-        <a href="https://divyanshisingh.journoportfolio.com/" target="_blank" rel="noopener noreferrer" class="c-link">📁 Portfolio</a>
-        <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="c-link">✍️ Aadhunik</a>
-        <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="c-link">📰 Sociobits</a>
-        <a href="https://aichatmates.com/author/divyanshi/" target="_blank" rel="noopener noreferrer" class="c-link">🤖 AI ChatMates</a>
-        <a href="https://medium.com/@divyanshi_46473" target="_blank" rel="noopener noreferrer" class="c-link">📝 Medium</a>
-        <a href="https://dev.to/divyanshi_singh" target="_blank" rel="noopener noreferrer" class="c-link">👩‍💻 Dev.to</a>
-        <a href="https://www.linkedin.com/in/divyanshi-singh-373183297" target="_blank" rel="noopener noreferrer" class="c-link">💼 LinkedIn</a>
-        <a href="https://www.youtube.com/@divyanshisingh9258" target="_blank" rel="noopener noreferrer" class="c-link">▶ YouTube</a>
+  <!-- CONTACT -->
+  <section class="full-bleed dark" id="contact">
+    <p class="sec-eyebrow">Get In Touch</p>
+    <div class="contact-scene">
+      <div class="contact-card">
+        <h2>Let's Create Together.</h2>
+        <p class="contact-desc">I'm looking for internship opportunities in Marketing, Copywriting, Digital Marketing, and Content Strategy.</p>
+        <p class="contact-desc">If you're building something interesting, I'd love to be part of it.</p>
+        <span class="contact-email">divyanshisinghh01@gmail.com</span>
+        <a
+          href="mailto:divyanshisinghh01@gmail.com?subject=Hey%20Divyanshi%2C%20let's%20connect!&body=Hi%20Divyanshi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20opportunity."
+          class="btn-big"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Say Hello →</a>
+        <div class="c-links">
+          <a href="https://divyanshisingh.journoportfolio.com/" target="_blank" rel="noopener noreferrer" class="c-link">📁 Portfolio</a>
+          <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="c-link">✍️ Aadhunik</a>
+          <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="c-link">📰 Sociobits</a>
+          <a href="https://aichatmates.com/author/divyanshi/" target="_blank" rel="noopener noreferrer" class="c-link">🤖 AI ChatMates</a>
+          <a href="https://medium.com/@divyanshi_46473" target="_blank" rel="noopener noreferrer" class="c-link">📝 Medium</a>
+          <a href="https://dev.to/divyanshi_singh" target="_blank" rel="noopener noreferrer" class="c-link">👩‍💻 Dev.to</a>
+          <a href="https://www.linkedin.com/in/divyanshi-singh-373183297" target="_blank" rel="noopener noreferrer" class="c-link">💼 LinkedIn</a>
+          <a href="https://www.youtube.com/@divyanshisingh9258" target="_blank" rel="noopener noreferrer" class="c-link">▶ YouTube</a>
+        </div>
+        <span class="c-location">📍 Mumbai, India · Open to remote &amp; on-site internships</span>
       </div>
-
-      <span class="c-location">📍 Mumbai, India · Open to remote &amp; on-site internships</span>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- ── FOOTER ──────────────────────────────────────── -->
+  <!-- FOOTER -->
   <footer>
     <span>© 2026 Divyanshi Singh</span>
     <span>Content Creator · Storyteller · Strategist</span>
   </footer>
 
-  <!-- ── FLOATING CTA ────────────────────────────────── -->
+  <!-- FLOATING CTA -->
   <button
     class="float-hire"
     onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
     aria-label="Hire Divyanshi"
   >✨ Hire Me</button>
 
-  <!-- ── ARTICLE PREVIEW MODAL ──────────────────────── -->
-  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mTitle" onclick="closeModal(event)">
+  <!-- MODAL -->
+  <div class="overlay" id="overlay" onclick="closeModal(event)">
     <div class="modal" id="modal">
-      <button class="modal-close" onclick="closeMB()" aria-label="Close preview">✕</button>
+      <button class="modal-close" onclick="closeMB()" aria-label="Close">✕</button>
       <svg id="modalThumbSVG" class="modal-art-thumb" viewBox="0 0 580 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
       <div class="modal-body">
-        <p class="modal-pub" id="mPub"></p>
+        <span class="modal-pub" id="mPub"></span>
         <span class="modal-ttag" id="mTag"></span>
         <h3 class="modal-h" id="mTitle"></h3>
         <p class="modal-desc" id="mDesc"></p>
@@ -261,6 +250,6 @@
     </div>
   </div>
 
-  <script src="./main.js" defer></script>
+  <script src="main.js"></script>
 </body>
 </html>
