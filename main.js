@@ -272,3 +272,8 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('DOMContentLoaded', () => {
   renderArticles();
 });
+
+// Fallback: also run immediately if DOM is already ready
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  renderArticles();
+}
