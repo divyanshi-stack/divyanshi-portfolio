@@ -1,7 +1,7 @@
 /* ============================================================
    style.css — Divyanshi Singh Portfolio
    Author   : Divyanshi Singh
-   Version  : 1.0.1 (Fixed Contact Overlap)
+   Version  : 1.0.2 (Fixed c-links overlap)
    ============================================================ */
 
 /* ── RESET & BASE ─────────────────────────────────────────── */
@@ -85,7 +85,6 @@ nav {
   background: #000;
 }
 
-/* 3-D glow rings */
 .hero-glow {
   position: absolute;
   inset: 0;
@@ -148,7 +147,6 @@ nav {
   to   { opacity: 1; transform: none; }
 }
 
-/* Profile picture */
 .profile-wrap {
   position: relative;
   margin-bottom: 2rem;
@@ -188,7 +186,6 @@ nav {
   box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
 }
 
-/* Hero text */
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -628,7 +625,6 @@ nav {
   font-weight: 600;
 }
 
-/* Tag colour variants */
 .tag-purple { background: linear-gradient(90deg, #7c3aed, #9333ea); }
 .tag-pink   { background: linear-gradient(90deg, #db2777, #e879a8); }
 .tag-blue   { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
@@ -670,129 +666,106 @@ nav {
   margin-top: 2.5rem;
 }
 
-/* ── CONTACT (FIXED OVERLAP) ──────────────────────────────── */
+/* ── CONTACT (CRITICAL FIX) ───────────────────────────────── */
 #contact {
-  padding: 6rem 2rem; /* Consistent padding */
-  min-height: auto;   /* Prevent section from being too tall */
+  padding: 100px 20px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact-scene {
-  max-width: 800px;
   width: 100%;
-  margin: 0 auto;
+  max-width: 800px;
 }
 
 .contact-card {
   background: linear-gradient(160deg, #1a0533 0%, #0d0d1a 100%);
   border: 1px solid rgba(192, 132, 252, 0.2);
   border-radius: 30px;
-  padding: 5rem 3rem;
+  padding: 4rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
   box-shadow: 0 40px 100px rgba(124, 58, 237, 0.25);
+  /* Use Flexbox to stack children properly */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.contact-card::before {
-  content: '';
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(192, 132, 252, 0.12), transparent 65%);
-  top: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
 .contact-card h2 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  letter-spacing: -0.04em;
+  color: #fff;
   margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 1;
-  line-height: 1.1;
 }
 
 .contact-card p {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.6);
-  max-width: 500px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 480px;
   margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
 }
 
 .contact-email {
   display: block;
   font-size: 1rem;
-  font-weight: 500;
-  color: #c084fc;
-  margin-top: 1.5rem;
-  position: relative;
-  z-index: 1;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 1rem 0 2rem;
 }
 
 .btn-big {
   display: inline-block;
-  padding: 1.1rem 2.8rem;
-  border-radius: 999px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  padding: 1rem 2.5rem;
   background: linear-gradient(135deg, #7c3aed, #db2777);
   color: #fff;
+  border-radius: 999px;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  position: relative;
-  z-index: 1;
-  margin: 2.5rem 0;
-}
-.btn-big:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 50px rgba(124, 58, 237, 0.5);
+  font-weight: 700;
+  margin-bottom: 3rem;
+  transition: transform 0.2s;
 }
 
+.btn-big:hover { transform: translateY(-3px); }
+
+/* --- THE OVERLAPPING FIX --- */
 .c-links {
   display: flex;
-  gap: 0.8rem;
+  flex-wrap: wrap; /* Allows links to flow to next line */
   justify-content: center;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
   list-style: none;
-  max-width: 100%;
+  height: auto; /* CRITICAL: ensures container grows with content */
 }
 
 .c-link {
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.03);
-  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  white-space: nowrap; /* Keeps icon and text together */
+  transition: all 0.2s;
 }
+
 .c-link:hover {
-  border-color: rgba(192, 132, 252, 0.5);
-  color: #fff;
   background: rgba(192, 132, 252, 0.1);
-  transform: translateY(-2px);
+  border-color: #c084fc;
+  color: #fff;
 }
 
 .c-location {
+  margin-top: 2rem;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.3);
-  margin-top: 2.5rem;
-  position: relative;
-  z-index: 1;
 }
 
 /* ── FOOTER ───────────────────────────────────────────────── */
@@ -804,10 +777,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
-  width: 100%;
-  position: relative;
-  clear: both;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /* ── FLOATING CTA ─────────────────────────────────────────── */
@@ -827,7 +797,6 @@ footer {
   animation: floatb 3s ease-in-out infinite;
   border: none;
 }
-.float-hire:hover { box-shadow: 0 14px 45px rgba(124, 58, 237, 0.6); }
 
 @keyframes floatb {
   0%, 100% { transform: translateY(0); }
@@ -840,7 +809,6 @@ footer {
   inset: 0;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -855,76 +823,12 @@ footer {
 
 .modal {
   background: #1a1a1f;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 22px;
   max-width: 580px;
   width: 100%;
   max-height: 88vh;
   overflow-y: auto;
-  transform: translateY(20px) scale(0.97);
-  transition: transform 0.25s;
   position: relative;
-}
-
-.overlay.open .modal { transform: none; }
-
-.modal-art-thumb {
-  width: 100%;
-  height: 220px;
-  display: block;
-  border-radius: 18px 18px 0 0;
-}
-
-.modal-body { padding: 1.8rem 2rem 2.2rem; }
-
-.modal-pub {
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 0.4rem;
-}
-
-.modal-ttag {
-  display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fff;
-  padding: 0.22rem 0.7rem;
-  border-radius: 999px;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.modal-h {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.modal-desc {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-}
-
-.modal-tags {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.8rem;
-}
-
-.modal-tags span {
-  padding: 0.22rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.45);
 }
 
 .modal-close {
@@ -936,42 +840,18 @@ footer {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, color 0.2s;
-  z-index: 10;
-}
-.modal-close:hover {
-  background: rgba(192, 132, 252, 0.3);
   color: #fff;
+  cursor: pointer;
+  z-index: 10;
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   nav { padding: 0 1.2rem; }
   .nav-links { display: none; }
   .stats { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  
-  footer { 
-    flex-direction: column; 
-    gap: 1rem; 
-    text-align: center; 
-    padding: 2rem 1.5rem;
-  }
-  
-  .contact-card { 
-    padding: 3.5rem 1.5rem; 
-    border-radius: 20px;
-  }
-  
-  .contact-card h2 { font-size: 2rem; }
-  .c-links { gap: 0.5rem; }
-  .c-link { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
-  
-  .float-hire { bottom: 1.2rem; right: 1.2rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+  .contact-card { padding: 3rem 1rem; }
+  .c-links { gap: 8px; }
 }
