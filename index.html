@@ -1,377 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Divyanshi Singh</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:#000;color:#f5f5f7;font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;}
-::-webkit-scrollbar{width:0;}
-nav{position:fixed;top:0;width:100%;z-index:900;background:rgba(0,0,0,0.72);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;padding:0 3rem;height:52px;}
-.nav-logo{font-size:1.05rem;font-weight:600;background:linear-gradient(135deg,#c084fc,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.78rem;letter-spacing:0.04em;transition:color 0.2s;cursor:pointer;}
-.nav-links a:hover{color:#fff;}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 2rem 4rem;text-align:center;position:relative;overflow:hidden;background:#000;}
-.hero-glow{position:absolute;inset:0;pointer-events:none;}
-.glow-ring{position:absolute;border-radius:50%;border:1px solid rgba(192,132,252,0.15);}
-.glow-ring:nth-child(1){width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%) rotateX(70deg);box-shadow:0 0 80px rgba(192,132,252,0.2) inset;animation:spin3d 20s linear infinite;}
-.glow-ring:nth-child(2){width:800px;height:800px;top:50%;left:50%;transform:translate(-50%,-50%) rotateX(70deg) rotateZ(30deg);box-shadow:0 0 60px rgba(244,114,182,0.15) inset;animation:spin3d 28s linear infinite reverse;}
-.glow-ring:nth-child(3){width:1000px;height:1000px;top:50%;left:50%;transform:translate(-50%,-50%) rotateX(70deg) rotateZ(-20deg);animation:spin3d 35s linear infinite;}
-@keyframes spin3d{to{transform:translate(-50%,-50%) rotateX(70deg) rotateZ(360deg);}}
-.hero-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
-.hero-blob:nth-child(4){width:500px;height:500px;background:rgba(124,58,237,0.18);top:-80px;left:-100px;animation:blobdrift 14s ease-in-out infinite alternate;}
-.hero-blob:nth-child(5){width:400px;height:400px;background:rgba(219,39,119,0.14);bottom:-60px;right:-80px;animation:blobdrift 18s ease-in-out infinite alternate-reverse;}
-@keyframes blobdrift{to{transform:translate(50px,40px);}}
-.profile-wrap{position:relative;margin-bottom:2rem;animation:fadeup 0.9s ease both;}
-.profile-ring{width:130px;height:130px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#c084fc,#f472b6,#38bdf8);display:inline-block;position:relative;box-shadow:0 0 40px rgba(192,132,252,0.4);}
-.profile-img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top;display:block;border:3px solid #000;}
-.profile-status{position:absolute;bottom:6px;right:6px;width:18px;height:18px;background:#22c55e;border-radius:50%;border:3px solid #000;box-shadow:0 0 8px rgba(34,197,94,0.6);}
-.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1.1rem;border-radius:999px;border:1px solid rgba(255,255,255,0.15);font-size:0.73rem;color:rgba(255,255,255,0.7);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.6rem;background:rgba(255,255,255,0.05);animation:fadeup 0.9s 0.1s ease both;}
-.live-dot{width:7px;height:7px;border-radius:50%;background:#c084fc;animation:pulse 1.6s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(192,132,252,0.7);}50%{box-shadow:0 0 0 6px rgba(192,132,252,0);}}
-@keyframes fadeup{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
-.hero h1{font-size:clamp(3.2rem,8vw,6rem);font-weight:700;letter-spacing:-0.04em;line-height:1.02;margin-bottom:1.2rem;animation:fadeup 0.9s 0.18s ease both;}
-.hero h1 em{font-style:italic;font-weight:300;background:linear-gradient(135deg,#c084fc,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.6);max-width:560px;margin:0 auto 1.8rem;font-weight:300;animation:fadeup 0.9s 0.26s ease both;}
-.hero-roles{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;animation:fadeup 0.9s 0.34s ease both;}
-.chip{padding:0.3rem 0.95rem;border-radius:999px;font-size:0.74rem;border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05);}
-.hero-desc{font-size:0.94rem;color:rgba(255,255,255,0.5);max-width:580px;margin:0 auto 2.8rem;line-height:1.9;animation:fadeup 0.9s 0.4s ease both;}
-.hero-btns{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;animation:fadeup 0.9s 0.48s ease both;}
-.btn-grad{padding:0.8rem 1.8rem;border-radius:999px;font-size:0.88rem;font-weight:600;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:transform 0.2s,box-shadow 0.2s;}
-.btn-grad:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(124,58,237,0.45);}
-.btn-ghost{padding:0.8rem 1.8rem;border-radius:999px;font-size:0.88rem;font-weight:500;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.85);text-decoration:none;background:rgba(255,255,255,0.04);display:inline-block;cursor:pointer;transition:all 0.2s;}
-.btn-ghost:hover{border-color:rgba(192,132,252,0.6);background:rgba(192,132,252,0.08);transform:translateY(-2px);}
-.marquee-wrap{padding:1.2rem 0;background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);overflow:hidden;white-space:nowrap;}
-.marquee-inner{display:inline-flex;gap:3rem;animation:marquee 28s linear infinite;}
-.marquee-inner span{font-size:0.78rem;color:rgba(255,255,255,0.35);letter-spacing:0.12em;text-transform:uppercase;}
-.marquee-inner span.dot{color:rgba(192,132,252,0.5);font-size:0.5rem;}
-@keyframes marquee{to{transform:translateX(-50%);}}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:900px;margin:0 auto;padding:4rem 2rem;gap:0;}
-.stat{text-align:center;padding:2rem 1rem;border-right:1px solid rgba(255,255,255,0.07);}
-.stat:last-child{border-right:none;}
-.stat-num{font-size:2.8rem;font-weight:700;letter-spacing:-0.04em;background:linear-gradient(135deg,#c084fc,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
-.stat-label{font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.3rem;}
-.full-bleed{width:100%;padding:7rem 2rem;display:flex;flex-direction:column;align-items:center;text-align:center;}
-.full-bleed.dark{background:#000;}
-.full-bleed.grey{background:#0a0a0a;}
-.sec-eyebrow{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:#c084fc;font-weight:600;margin-bottom:0.6rem;}
-.sec-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;letter-spacing:-0.04em;line-height:1.1;max-width:700px;margin-bottom:1rem;}
-.sec-sub{font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:520px;line-height:1.85;margin-bottom:3.5rem;}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;width:100%;text-align:left;}
-.about-text p{font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:2;margin-bottom:1rem;}
-.about-text strong{color:#f5f5f7;}
-.grad-word{background:linear-gradient(135deg,#c084fc,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600;}
-.skills-col{display:flex;flex-direction:column;gap:1.4rem;}
-.sg-title{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.5rem;font-weight:600;}
-.stags{display:flex;flex-wrap:wrap;gap:0.4rem;}
-.stag{padding:0.26rem 0.8rem;border-radius:999px;font-size:0.74rem;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.04);transition:all 0.2s;cursor:default;}
-.stag:hover{border-color:rgba(192,132,252,0.5);color:#c084fc;}
-.pub-strip{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;max-width:900px;}
-.pub-card{flex:1;min-width:240px;max-width:280px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:20px;padding:2rem 1.6rem;text-align:left;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
-.pub-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(192,132,252,0.06),transparent);opacity:0;transition:opacity 0.3s;}
-.pub-card:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(192,132,252,0.3);box-shadow:0 24px 60px rgba(124,58,237,0.18);}
-.pub-card:hover::before{opacity:1;}
-.pub-icon{font-size:2rem;margin-bottom:1rem;}
-.pub-name{font-size:1rem;font-weight:700;color:#f5f5f7;margin-bottom:0.4rem;}
-.pub-desc{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.7;margin-bottom:1.2rem;}
-.pub-link{font-size:0.78rem;color:#c084fc;text-decoration:none;font-weight:600;transition:color 0.2s;}
-.pub-link:hover{color:#f472b6;}
-.pub-count{position:absolute;top:1.2rem;right:1.4rem;font-size:0.68rem;color:rgba(255,255,255,0.25);letter-spacing:0.08em;}
-.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;max-width:1060px;width:100%;}
-.art-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;overflow:hidden;cursor:pointer;transition:transform 0.28s,border-color 0.28s,box-shadow 0.28s;display:flex;flex-direction:column;}
-.art-card:hover{transform:translateY(-6px);border-color:rgba(192,132,252,0.35);box-shadow:0 20px 60px rgba(0,0,0,0.6);}
-.art-thumb{width:100%;height:170px;display:block;flex-shrink:0;}
-.art-body{padding:1.2rem 1.3rem;flex:1;display:flex;flex-direction:column;text-align:left;}
-.art-pub{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.3rem;font-weight:600;}
-.art-tag{display:inline-block;font-size:0.65rem;letter-spacing:0.07em;text-transform:uppercase;color:#fff;padding:0.18rem 0.6rem;border-radius:999px;margin-bottom:0.7rem;font-weight:600;}
-.tag-purple{background:linear-gradient(90deg,#7c3aed,#9333ea);}
-.tag-pink{background:linear-gradient(90deg,#db2777,#e879a8);}
-.tag-blue{background:linear-gradient(90deg,#0ea5e9,#38bdf8);}
-.tag-amber{background:linear-gradient(90deg,#d97706,#f59e0b);}
-.tag-green{background:linear-gradient(90deg,#059669,#10b981);}
-.art-title{font-size:0.9rem;font-weight:600;line-height:1.5;flex:1;color:#f5f5f7;}
-.art-footer{display:flex;justify-content:space-between;align-items:center;margin-top:0.9rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.07);}
-.art-date{font-size:0.72rem;color:rgba(255,255,255,0.3);}
-.art-arrow{font-size:0.75rem;color:#c084fc;opacity:0;transition:opacity 0.2s;}
-.art-card:hover .art-arrow{opacity:1;}
-.see-more-row{display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;margin-top:2.5rem;}
-.contact-scene{max-width:800px;width:100%;position:relative;}
-.contact-card{background:linear-gradient(160deg,#1a0533 0%,#0d0d1a 100%);border:1px solid rgba(192,132,252,0.2);border-radius:30px;padding:4.5rem 3rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 40px 100px rgba(124,58,237,0.25);}
-.contact-card::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(192,132,252,0.12),transparent 65%);top:-120px;left:50%;transform:translateX(-50%);}
-.contact-card h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.04em;margin-bottom:1rem;position:relative;}
-.contact-card p{font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:440px;margin:0 auto 0.5rem;position:relative;}
-.contact-email{display:inline-block;font-size:1rem;font-weight:500;color:rgba(255,255,255,0.7);margin:1rem 0 2rem;position:relative;}
-.btn-big{display:inline-block;padding:1rem 2.5rem;border-radius:999px;font-size:1rem;font-weight:700;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;text-decoration:none;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;margin-bottom:2.5rem;}
-.btn-big:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(124,58,237,0.5);}
-.c-links{display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;position:relative;}
-.c-link{padding:0.5rem 1.1rem;border-radius:999px;font-size:0.8rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.65);text-decoration:none;background:rgba(255,255,255,0.04);transition:all 0.2s;}
-.c-link:hover{border-color:rgba(192,132,252,0.5);color:#c084fc;transform:translateY(-2px);}
-.c-location{font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:1.4rem;position:relative;}
-footer{background:#000;border-top:1px solid rgba(255,255,255,0.08);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(255,255,255,0.3);}
-.float-hire{position:fixed;bottom:2rem;right:2rem;z-index:800;padding:0.72rem 1.4rem;border-radius:999px;font-size:0.82rem;font-weight:700;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;cursor:pointer;box-shadow:0 8px 30px rgba(124,58,237,0.45);animation:floatb 3s ease-in-out infinite;border:none;}
-@keyframes floatb{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.25s;}
-.overlay.open{opacity:1;pointer-events:all;}
-.modal{background:#1a1a1f;border:1px solid rgba(255,255,255,0.1);border-radius:22px;max-width:580px;width:100%;max-height:88vh;overflow-y:auto;transform:translateY(20px) scale(0.97);transition:transform 0.25s;position:relative;}
-.overlay.open .modal{transform:none;}
-.modal-art-thumb{width:100%;height:220px;display:block;border-radius:18px 18px 0 0;}
-.modal-body{padding:1.8rem 2rem 2.2rem;}
-.modal-pub{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.4rem;}
-.modal-ttag{display:inline-block;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;padding:0.22rem 0.7rem;border-radius:999px;margin-bottom:1rem;font-weight:600;}
-.modal-h{font-size:1.5rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:1rem;line-height:1.3;}
-.modal-desc{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:1.5rem;}
-.modal-tags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.8rem;}
-.modal-tags span{padding:0.22rem 0.7rem;border-radius:999px;font-size:0.72rem;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.45);}
-.modal-close{position:absolute;top:1rem;right:1rem;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;color:rgba(255,255,255,0.6);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10;}
-.modal-close:hover{background:rgba(192,132,252,0.3);color:#fff;}
-@media(max-width:700px){nav{padding:0 1.2rem;}.nav-links{display:none;}.stats{grid-template-columns:repeat(2,1fr);}.about-grid{grid-template-columns:1fr;gap:2rem;}footer{flex-direction:column;gap:0.5rem;}.contact-card{padding:3rem 1.5rem;}.float-hire{bottom:1.2rem;right:1.2rem;}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Divyanshi Singh — Content Creator, AI Writer & Marketing Strategist based in Mumbai." />
+  <meta name="author" content="Divyanshi Singh" />
+  <title>Divyanshi Singh | Content Creator & AI Writer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo" onclick="scrollTo(0,0)">Divyanshi Singh</div>
-  <ul class="nav-links">
-    <li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a></li>
-    <li><a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})">Writing</a></li>
-    <li><a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
-  </ul>
-</nav>
+  <!-- ── NAVIGATION ─────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-logo" onclick="scrollTo(0,0)">Divyanshi Singh</div>
+    <ul class="nav-links">
+      <li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a></li>
+      <li><a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})">Writing</a></li>
+      <li><a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
+    </ul>
+  </nav>
 
-<div class="hero">
-  <div class="hero-glow">
-    <div class="glow-ring"></div><div class="glow-ring"></div><div class="glow-ring"></div>
-    <div class="hero-blob"></div><div class="hero-blob"></div>
-  </div>
-  <div class="profile-wrap">
-    <div class="profile-ring">
-      <img class="profile-img" id="profileImg"
-        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Crect width='130' height='130' rx='65' fill='%23241040'/%3E%3Ctext x='65' y='80' text-anchor='middle' font-size='52' font-family='serif'%3E👤%3C/text%3E%3C/svg%3E"
-        alt="Divyanshi Singh"/>
-      <div class="profile-status"></div>
+  <!-- ── HERO ───────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true">
+      <div class="glow-ring"></div>
+      <div class="glow-ring"></div>
+      <div class="glow-ring"></div>
+      <div class="hero-blob"></div>
+      <div class="hero-blob"></div>
     </div>
-    <input type="file" id="pfpInput" accept="image/*" style="display:none" onchange="loadPFP(event)"/>
-    <div style="margin-top:0.5rem;font-size:0.7rem;color:rgba(255,255,255,0.25);cursor:pointer;" onclick="document.getElementById('pfpInput').click()">📷 tap to update photo</div>
-  </div>
-  <div class="hero-tag"><span class="live-dot"></span> Open to Internships</div>
-  <h1>Hello, I'm <em>Divyanshi</em></h1>
-  <p class="hero-sub">Storyteller. Strategist. Making AI feel human.</p>
-  <div class="hero-roles">
-    <span class="chip">Content Creator</span><span class="chip">Creative Director</span><span class="chip">AI Writer</span><span class="chip">Marketing Strategist</span>
-  </div>
-  <p class="hero-desc">With a background in Mass Media & Communication from Thakur College, I turn emerging tech into stories that stick — currently writing for Aadhunik.ai, Sociobits, and AI ChatMates.</p>
-  <div class="hero-btns">
-    <a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" class="btn-grad">Read My Work</a>
-    <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-ghost">Get In Touch →</a>
-  </div>
-</div>
 
-<div class="marquee-wrap">
-  <div class="marquee-inner">
-    <span>AI Content Writing</span><span class="dot">✦</span><span>Tech Journalism</span><span class="dot">✦</span><span>Brand Storytelling</span><span class="dot">✦</span><span>SEO Copywriting</span><span class="dot">✦</span><span>Prompt Engineering</span><span class="dot">✦</span><span>Digital Marketing</span><span class="dot">✦</span><span>Creative Direction</span><span class="dot">✦</span><span>WordPress</span><span class="dot">✦</span>
-    <span>AI Content Writing</span><span class="dot">✦</span><span>Tech Journalism</span><span class="dot">✦</span><span>Brand Storytelling</span><span class="dot">✦</span><span>SEO Copywriting</span><span class="dot">✦</span><span>Prompt Engineering</span><span class="dot">✦</span><span>Digital Marketing</span><span class="dot">✦</span><span>Creative Direction</span><span class="dot">✦</span><span>WordPress</span><span class="dot">✦</span>
-  </div>
-</div>
-
-<div class="stats">
-  <div class="stat"><span class="stat-num">3</span><span class="stat-label">Publications</span></div>
-  <div class="stat"><span class="stat-num">33+</span><span class="stat-label">Articles Published</span></div>
-  <div class="stat"><span class="stat-num">2</span><span class="stat-label">Years of Writing</span></div>
-  <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Ideas Brewing</span></div>
-</div>
-
-<div class="full-bleed grey" id="about">
-  <div class="sec-eyebrow">About Me</div>
-  <div class="sec-title">The person behind the content.</div>
-  <p class="sec-sub">A creative thinker who bridges the gap between technology and human storytelling.</p>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I'm Divyanshi — a content writer and digital strategist with a deep interest in how AI is reshaping the way we communicate.</p>
-      <p>Currently a <strong>Junior Content Creator</strong> at <strong>Aadhunik.ai</strong> and <strong>Sociobits</strong>, I specialise in simplifying complex tech narratives into stories that resonate across blogs, social, and brand campaigns.</p>
-      <p>I completed my studies in <strong>Mass Media & Communication (BAMMC)</strong> at <strong>Thakur College of Science and Commerce</strong>, which sharpened my instincts for advertising, brand storytelling, and audience-first thinking.</p>
-      <p>Looking for: <span class="grad-word">Marketing · Copywriting · Digital Marketing · Content Strategy Internships</span></p>
-    </div>
-    <div class="skills-col">
-      <div><div class="sg-title">Content & Writing</div><div class="stags"><span class="stag">AI Content Writing</span><span class="stag">SEO Copywriting</span><span class="stag">Tech Journalism</span><span class="stag">Brand Storytelling</span><span class="stag">Blog Writing</span></div></div>
-      <div><div class="sg-title">Creative & Strategy</div><div class="stags"><span class="stag">Creative Direction</span><span class="stag">Marketing Strategy</span><span class="stag">Brand Management</span><span class="stag">Canva</span></div></div>
-      <div><div class="sg-title">Digital & AI Tools</div><div class="stags"><span class="stag">ChatGPT</span><span class="stag">Claude</span><span class="stag">WordPress</span><span class="stag">Prompt Engineering</span></div></div>
-    </div>
-  </div>
-</div>
-
-<div class="full-bleed dark">
-  <div class="sec-eyebrow">Where I Write</div>
-  <div class="sec-title">3 Publications</div>
-  <p class="sec-sub">My work lives across three platforms — each covering a different facet of tech, AI, and digital culture.</p>
-  <div class="pub-strip">
-    <div class="pub-card">
-      <div class="pub-count">01</div>
-      <div class="pub-icon">🤖</div>
-      <div class="pub-name">Aadhunik.ai</div>
-      <div class="pub-desc">AI tutorials, tool breakdowns, and insights that make cutting-edge tech accessible to everyday readers. My primary platform for long-form AI content.</div>
-      <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" class="pub-link">Read Articles →</a>
-    </div>
-    <div class="pub-card">
-      <div class="pub-count">02</div>
-      <div class="pub-icon">📰</div>
-      <div class="pub-name">Sociobits</div>
-      <div class="pub-desc">Startup and technology news for the next generation. I cover AI launches, funding rounds, and the companies reshaping the digital world.</div>
-      <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" class="pub-link">Read Articles →</a>
-    </div>
-    <div class="pub-card">
-      <div class="pub-count">03</div>
-      <div class="pub-icon">💬</div>
-      <div class="pub-name">AI ChatMates</div>
-      <div class="pub-desc">Exploring the world of AI companions, chatbots, and conversational intelligence — writing that sits at the intersection of AI and human connection.</div>
-      <a href="https://aichatmates.com/author/divyanshi/" target="_blank" class="pub-link">Read Articles →</a>
-    </div>
-  </div>
-</div>
-
-<div class="full-bleed grey" id="writing">
-  <div class="sec-eyebrow">Latest Articles</div>
-  <div class="sec-title">Featured Writing</div>
-  <p class="sec-sub">Click any article to preview it, then jump to the full read.</p>
-  <div class="articles-grid" id="artGrid"></div>
-  <div class="see-more-row">
-    <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" class="btn-grad" style="font-size:0.85rem;padding:0.7rem 1.6rem;">All Aadhunik Articles</a>
-    <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" class="btn-ghost" style="font-size:0.85rem;padding:0.7rem 1.5rem;">Sociobits →</a>
-    <a href="https://aichatmates.com/author/divyanshi/" target="_blank" class="btn-ghost" style="font-size:0.85rem;padding:0.7rem 1.5rem;">AI ChatMates →</a>
-    <a href="https://medium.com/@divyanshi_46473" target="_blank" class="btn-ghost" style="font-size:0.85rem;padding:0.7rem 1.5rem;">Medium →</a>
-  </div>
-</div>
-
-<div class="full-bleed dark" id="contact">
-  <div class="sec-eyebrow">Get In Touch</div>
-  <div class="contact-scene">
-    <div class="contact-card">
-      <h2>Let's Create Together.</h2>
-      <p>I'm looking for internship opportunities in Marketing, Copywriting, Digital Marketing, and Content Strategy.</p>
-      <p>If you're building something interesting, I'd love to be part of it.</p>
-      <div class="contact-email">divyanshisinghh01@gmail.com</div><br/>
-      <a href="mailto:divyanshisinghh01@gmail.com?subject=Hey%20Divyanshi%2C%20let's%20connect!&body=Hi%20Divyanshi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20opportunity%20with%20you." target="_blank" class="btn-big">Say Hello →</a>
-      <div class="c-links">
-        <a href="https://divyanshisingh.journoportfolio.com/" target="_blank" class="c-link">📁 Portfolio</a>
-        <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" class="c-link">✍️ Aadhunik</a>
-        <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" class="c-link">📰 Sociobits</a>
-        <a href="https://aichatmates.com/author/divyanshi/" target="_blank" class="c-link">🤖 AI ChatMates</a>
-        <a href="https://medium.com/@divyanshi_46473" target="_blank" class="c-link">📝 Medium</a>
-        <a href="https://dev.to/divyanshi_singh" target="_blank" class="c-link">👩‍💻 Dev.to</a>
-        <a href="https://www.linkedin.com/in/divyanshi-singh-373183297" target="_blank" class="c-link">💼 LinkedIn</a>
-        <a href="https://www.youtube.com/@divyanshisingh9258" target="_blank" class="c-link">▶ YouTube</a>
+    <!-- Profile Picture -->
+    <div class="profile-wrap">
+      <div class="profile-ring">
+        <img
+          class="profile-img"
+          src="assets/profile.jpg"
+          alt="Divyanshi Singh — Content Creator and AI Writer"
+        />
+        <span class="profile-status" aria-label="Available for opportunities"></span>
       </div>
-      <div class="c-location">📍 Mumbai, India · Open to remote & on-site internships</div>
+    </div>
+
+    <span class="hero-tag">
+      <span class="live-dot" aria-hidden="true"></span>
+      Open to Internships
+    </span>
+
+    <h1>Hello, I'm <em>Divyanshi</em></h1>
+    <p class="hero-sub">Storyteller. Strategist. Making AI feel human.</p>
+
+    <div class="hero-roles" aria-label="Roles">
+      <span class="chip">Content Creator</span>
+      <span class="chip">Creative Director</span>
+      <span class="chip">AI Writer</span>
+      <span class="chip">Marketing Strategist</span>
+    </div>
+
+    <p class="hero-desc">
+      With a background in Mass Media &amp; Communication from Thakur College,
+      I turn emerging tech into stories that stick — currently writing for
+      Aadhunik.ai, Sociobits, and AI ChatMates.
+    </p>
+
+    <div class="hero-btns">
+      <a onclick="document.getElementById('writing').scrollIntoView({behavior:'smooth'})" class="btn-grad" role="button">Read My Work</a>
+      <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-ghost" role="button">Get In Touch →</a>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ─────────────────────────────────────── -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-inner">
+      <span>AI Content Writing</span><span class="dot">✦</span>
+      <span>Tech Journalism</span><span class="dot">✦</span>
+      <span>Brand Storytelling</span><span class="dot">✦</span>
+      <span>SEO Copywriting</span><span class="dot">✦</span>
+      <span>Prompt Engineering</span><span class="dot">✦</span>
+      <span>Digital Marketing</span><span class="dot">✦</span>
+      <span>Creative Direction</span><span class="dot">✦</span>
+      <span>WordPress</span><span class="dot">✦</span>
+      <!-- Duplicate for seamless loop -->
+      <span>AI Content Writing</span><span class="dot">✦</span>
+      <span>Tech Journalism</span><span class="dot">✦</span>
+      <span>Brand Storytelling</span><span class="dot">✦</span>
+      <span>SEO Copywriting</span><span class="dot">✦</span>
+      <span>Prompt Engineering</span><span class="dot">✦</span>
+      <span>Digital Marketing</span><span class="dot">✦</span>
+      <span>Creative Direction</span><span class="dot">✦</span>
+      <span>WordPress</span><span class="dot">✦</span>
     </div>
   </div>
-</div>
 
-<footer>
-  <span>© 2026 Divyanshi Singh</span>
-  <span>Content Creator · Storyteller · Strategist</span>
-</footer>
-
-<button class="float-hire" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">✨ Hire Me</button>
-
-<div class="overlay" id="overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal">
-    <button class="modal-close" onclick="closeMB()">✕</button>
-    <svg id="modalThumbSVG" class="modal-art-thumb" viewBox="0 0 580 220" xmlns="http://www.w3.org/2000/svg"></svg>
-    <div class="modal-body">
-      <div class="modal-pub" id="mPub"></div>
-      <div class="modal-ttag" id="mTag"></div>
-      <div class="modal-h" id="mTitle"></div>
-      <div class="modal-desc" id="mDesc"></div>
-      <div class="modal-tags" id="mMeta"></div>
-      <div id="mActions"></div>
-    </div>
+  <!-- ── STATS ───────────────────────────────────────── -->
+  <div class="stats" aria-label="Key stats">
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Publications</span></div>
+    <div class="stat"><span class="stat-num">33+</span><span class="stat-label">Articles Published</span></div>
+    <div class="stat"><span class="stat-num">2</span><span class="stat-label">Years of Writing</span></div>
+    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Ideas Brewing</span></div>
   </div>
-</div>
 
-<script>
-function loadPFP(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>document.getElementById('profileImg').src=ev.target.result;r.readAsDataURL(f);}
+  <!-- ── ABOUT ───────────────────────────────────────── -->
+  <section class="full-bleed grey" id="about">
+    <p class="sec-eyebrow">About Me</p>
+    <h2 class="sec-title">The person behind the content.</h2>
+    <p class="sec-sub">A creative thinker who bridges the gap between technology and human storytelling.</p>
 
-// ── EXACTLY 5 ARTICLES ──────────────────────────────
-const arts = [
-  {
-    pub:"Aadhunik.ai", tag:"AI Comparison", tagClass:"tag-purple",
-    title:"Claude vs. ChatGPT vs. Grok: Which One Wins for Bloggers?",
-    desc:"A real-world head-to-head comparison of three leading AI assistants tested specifically for blogging — covering writing quality, SEO awareness, tone control, and overall usefulness for content creators.",
-    date:"Apr 16, 2026", url:"https://aadhunik.ai/blog/claude-vs-chatgpt-vs-grok-content-writing-comparison/",
-    meta:["AI Comparison","Blogging","Claude","ChatGPT","Grok"],
-    svg:`<defs><linearGradient id="g1a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#050d2e"/><stop offset="100%" stop-color="#0a1a4a"/></linearGradient><linearGradient id="g1b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2e0520"/><stop offset="100%" stop-color="#1a0010"/></linearGradient></defs><rect x="0" y="0" width="290" height="220" fill="url(#g1a)"/><rect x="290" y="0" width="290" height="220" fill="url(#g1b)"/><rect x="287" y="0" width="6" height="220" fill="rgba(255,255,255,0.08)"/><text x="145" y="80" font-family="system-ui" font-size="26" font-weight="700" fill="#93c5fd" text-anchor="middle">Claude</text><text x="145" y="104" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="1">ChatGPT · Grok</text><text x="435" y="80" font-family="system-ui" font-size="20" font-weight="700" fill="#f9a8d4" text-anchor="middle">Bloggers</text><text x="435" y="104" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="1">Who Wins?</text><text x="290" y="148" font-family="system-ui" font-size="42" font-weight="900" fill="rgba(255,255,255,0.92)" text-anchor="middle">VS</text><circle cx="290" cy="148" r="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/><text x="290" y="22" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.25)" text-anchor="middle" letter-spacing="4">AI COMPARISON · AADHUNIK</text>`
-  },
-  {
-    pub:"Aadhunik.ai", tag:"AI Tools", tagClass:"tag-blue",
-    title:"Create Stunning Thumbnails & Social Media Graphics Using Free AI Tools",
-    desc:"A practical guide to generating scroll-stopping visuals using free AI tools — covering the best platforms, prompting tips, and a step-by-step workflow for content creators on any budget.",
-    date:"Apr 23, 2026", url:"https://aadhunik.ai/blog/create-stunning-thumbnails-and-social-media-graphics-using-free-ai-tools/",
-    meta:["Tutorial","Design","Free Tools","Social Media"],
-    svg:`<defs><linearGradient id="g2a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0c1a2e"/><stop offset="100%" stop-color="#0f3460"/></linearGradient><linearGradient id="g2b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#6366f1"/></linearGradient></defs><rect width="580" height="220" fill="url(#g2a)"/><circle cx="260" cy="95" r="48" fill="none" stroke="url(#g2b)" stroke-width="2" opacity="0.7"/><circle cx="320" cy="95" r="48" fill="none" stroke="#ec4899" stroke-width="2" opacity="0.7"/><circle cx="290" cy="143" r="48" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.7"/><circle cx="253" cy="85" r="10" fill="#0ea5e9"/><circle cx="327" cy="85" r="10" fill="#ec4899"/><circle cx="290" cy="152" r="10" fill="#f59e0b"/><circle cx="290" cy="108" r="8" fill="#fff" opacity="0.95"/><text x="290" y="22" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.25)" text-anchor="middle" letter-spacing="4">AI DESIGN TOOLS · AADHUNIK</text>`
-  },
-  {
-    pub:"Aadhunik.ai", tag:"AI Insights", tagClass:"tag-pink",
-    title:"This AI Is Your Second Brain and It Never Forgets!",
-    desc:"Exploring AI memory tools that act as a second brain — capturing everything you read, watch, and think, so you never lose a great idea again.",
-    date:"Apr 21, 2026", url:"https://aadhunik.ai/blog/ai-twin-assistant-never-forget/",
-    meta:["Productivity","Memory AI","Tools"],
-    svg:`<defs><linearGradient id="g3a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e0a3c"/><stop offset="100%" stop-color="#3d0070"/></linearGradient><linearGradient id="g3b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#f472b6"/></linearGradient></defs><rect width="580" height="220" fill="url(#g3a)"/><line x1="190" y1="72" x2="290" y2="112" stroke="rgba(167,139,250,0.35)" stroke-width="1.5"/><line x1="290" y1="112" x2="390" y2="72" stroke="rgba(244,114,182,0.35)" stroke-width="1.5"/><line x1="240" y1="162" x2="290" y2="112" stroke="rgba(167,139,250,0.35)" stroke-width="1.5"/><line x1="290" y1="112" x2="340" y2="162" stroke="rgba(244,114,182,0.35)" stroke-width="1.5"/><circle cx="290" cy="112" r="24" fill="url(#g3b)" opacity="0.95"/><circle cx="290" cy="112" r="10" fill="#fff" opacity="0.9"/><circle cx="190" cy="72" r="12" fill="url(#g3b)" opacity="0.8"/><circle cx="390" cy="72" r="12" fill="url(#g3b)" opacity="0.8"/><circle cx="240" cy="162" r="9" fill="#a78bfa" opacity="0.7"/><circle cx="340" cy="162" r="9" fill="#f472b6" opacity="0.7"/><text x="290" y="22" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.25)" text-anchor="middle" letter-spacing="4">AI SECOND BRAIN · AADHUNIK</text>`
-  },
-  {
-    pub:"Sociobits", tag:"AI Gadgets", tagClass:"tag-amber",
-    title:"AI Gadgets That Automatically Record and Transcribe Meetings",
-    desc:"A deep-dive into the best AI meeting note-taker gadgets of 2025 — from hardware recorders to smart apps — that automatically capture, transcribe, and summarise everything so you never miss a word.",
-    date:"2025", url:"https://www.sociobits.org/best-ai-meeting-note-taker/20275/",
-    meta:["AI Gadgets","Productivity","Meetings","Transcription"],
-    svg:`<defs><linearGradient id="g4a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a1000"/><stop offset="100%" stop-color="#3a2800"/></linearGradient></defs><rect width="580" height="220" fill="url(#g4a)"/><circle cx="450" cy="60" r="110" fill="rgba(245,158,11,0.06)"/><rect x="220" y="65" width="140" height="100" rx="14" fill="rgba(0,0,0,0.45)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/><circle cx="290" cy="95" r="22" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.5)" stroke-width="1.5"/><text x="290" y="102" font-family="system-ui" font-size="22" text-anchor="middle">🎙️</text><rect x="240" y="132" width="100" height="7" rx="3" fill="rgba(245,158,11,0.3)"/><rect x="255" y="146" width="70" height="5" rx="2" fill="rgba(245,158,11,0.2)"/><text x="152" y="90" font-family="monospace" font-size="8" fill="rgba(245,158,11,0.6)">▶ Recording...</text><text x="152" y="106" font-family="monospace" font-size="8" fill="rgba(245,158,11,0.45)">✓ Transcribing</text><text x="152" y="122" font-family="monospace" font-size="8" fill="rgba(245,158,11,0.3)">✓ Summarised</text><text x="290" y="22" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.25)" text-anchor="middle" letter-spacing="4">AI GADGETS · SOCIOBITS</text>`
-  },
-  {
-    pub:"Aadhunik.ai", tag:"Tutorial", tagClass:"tag-green",
-    title:"Make AI Content Undetectable With These Proven Methods",
-    desc:"A candid, technique-backed guide to making AI-generated content sound genuinely human — covering tone, structure, editing strategies, and the tools that actually work in 2026.",
-    date:"Apr 17, 2026", url:"https://aadhunik.ai/blog/how-to-make-ai-content-sound-human/",
-    meta:["Tutorial","AI Writing","Content","Tips"],
-    svg:`<defs><linearGradient id="g5a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#052e16"/><stop offset="100%" stop-color="#0d3e20"/></linearGradient></defs><rect width="580" height="220" fill="url(#g5a)"/><rect x="180" y="52" width="220" height="128" rx="12" fill="rgba(0,0,0,0.5)" stroke="rgba(16,185,129,0.45)" stroke-width="1.5"/><rect x="180" y="52" width="220" height="22" rx="10" fill="rgba(16,185,129,0.2)"/><circle cx="200" cy="63" r="5" fill="#ef4444" opacity="0.8"/><circle cx="216" cy="63" r="5" fill="#f59e0b" opacity="0.8"/><circle cx="232" cy="63" r="5" fill="#10b981" opacity="0.8"/><text x="193" y="92" font-family="monospace" font-size="9" fill="#10b981" opacity="0.9">$ AI score: 9%</text><text x="193" y="108" font-family="monospace" font-size="9" fill="#10b981" opacity="0.75">$ human: 96%</text><text x="193" y="124" font-family="monospace" font-size="9" fill="#10b981" opacity="0.6">$ UNDETECTABLE ✓</text><text x="290" y="22" font-family="system-ui" font-size="10" fill="rgba(255,255,255,0.25)" text-anchor="middle" letter-spacing="4">AI TUTORIAL · AADHUNIK</text>`
-  }
-];
-// ── END OF ARTICLES ──────────────────────────────────
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm Divyanshi — a content writer and digital strategist with a deep interest in how AI is reshaping the way we communicate.</p>
+        <p>Currently a <strong>Junior Content Creator</strong> at <strong>Aadhunik.ai</strong> and <strong>Sociobits</strong>, I specialise in simplifying complex tech narratives into stories that resonate across blogs, social, and brand campaigns.</p>
+        <p>I completed my studies in <strong>Mass Media &amp; Communication (BAMMC)</strong> at <strong>Thakur College of Science and Commerce</strong>, which sharpened my instincts for advertising, brand storytelling, and audience-first thinking.</p>
+        <p>Looking for: <span class="grad-word">Marketing · Copywriting · Digital Marketing · Content Strategy Internships</span></p>
+      </div>
 
-function renderArts(){
-  document.getElementById('artGrid').innerHTML = arts.map((a,i)=>`
-    <div class="art-card" onclick="openM(${i})">
-      <svg class="art-thumb" viewBox="0 0 580 220" xmlns="http://www.w3.org/2000/svg">${a.svg}</svg>
-      <div class="art-body">
-        <div class="art-pub">${a.pub}</div>
-        <span class="art-tag ${a.tagClass}">${a.tag}</span>
-        <div class="art-title">${a.title}</div>
-        <div class="art-footer">
-          <span class="art-date">${a.date}</span>
-          <span class="art-arrow">Read →</span>
+      <div class="skills-col">
+        <div class="skill-group">
+          <p class="sg-title">Content &amp; Writing</p>
+          <div class="stags">
+            <span class="stag">AI Content Writing</span>
+            <span class="stag">SEO Copywriting</span>
+            <span class="stag">Tech Journalism</span>
+            <span class="stag">Brand Storytelling</span>
+            <span class="stag">Blog Writing</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <p class="sg-title">Creative &amp; Strategy</p>
+          <div class="stags">
+            <span class="stag">Creative Direction</span>
+            <span class="stag">Marketing Strategy</span>
+            <span class="stag">Brand Management</span>
+            <span class="stag">Canva</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <p class="sg-title">Digital &amp; AI Tools</p>
+          <div class="stags">
+            <span class="stag">ChatGPT</span>
+            <span class="stag">Claude</span>
+            <span class="stag">WordPress</span>
+            <span class="stag">Prompt Engineering</span>
+          </div>
         </div>
       </div>
-    </div>`).join('');
-}
+    </div>
+  </section>
 
-function openM(i){
-  const a=arts[i];
-  document.getElementById('modalThumbSVG').innerHTML=a.svg;
-  document.getElementById('mPub').textContent=a.pub;
-  const t=document.getElementById('mTag');t.textContent=a.tag;t.className=`modal-ttag ${a.tagClass}`;
-  document.getElementById('mTitle').textContent=a.title;
-  document.getElementById('mDesc').textContent=a.desc;
-  document.getElementById('mMeta').innerHTML=a.meta.map(m=>`<span>${m}</span>`).join('');
-  document.getElementById('mActions').innerHTML=`<a href="${a.url}" target="_blank" class="btn-grad" style="font-size:0.85rem;padding:0.72rem 1.6rem;">Read Full Article →</a>`;
-  document.getElementById('overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeMB(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
-function closeModal(e){if(e.target===document.getElementById('overlay'))closeMB();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMB();});
+  <!-- ── PUBLICATIONS ────────────────────────────────── -->
+  <section class="full-bleed dark">
+    <p class="sec-eyebrow">Where I Write</p>
+    <h2 class="sec-title">3 Publications</h2>
+    <p class="sec-sub">My work lives across three platforms — each covering a different facet of tech, AI, and digital culture.</p>
 
-renderArts();
-</script>
+    <div class="pub-strip">
+      <article class="pub-card">
+        <span class="pub-count">01</span>
+        <div class="pub-icon" aria-hidden="true">🤖</div>
+        <h3 class="pub-name">Aadhunik.ai</h3>
+        <p class="pub-desc">AI tutorials, tool breakdowns, and insights that make cutting-edge tech accessible to everyday readers. My primary platform for long-form AI content.</p>
+        <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Articles →</a>
+      </article>
+
+      <article class="pub-card">
+        <span class="pub-count">02</span>
+        <div class="pub-icon" aria-hidden="true">📰</div>
+        <h3 class="pub-name">Sociobits</h3>
+        <p class="pub-desc">Startup and technology news for the next generation. I cover AI launches, funding rounds, and the companies reshaping the digital world.</p>
+        <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Articles →</a>
+      </article>
+
+      <article class="pub-card">
+        <span class="pub-count">03</span>
+        <div class="pub-icon" aria-hidden="true">💬</div>
+        <h3 class="pub-name">AI ChatMates</h3>
+        <p class="pub-desc">Exploring the world of AI companions, chatbots, and conversational intelligence — writing that sits at the intersection of AI and human connection.</p>
+        <a href="https://aichatmates.com/author/divyanshi/" target="_blank" rel="noopener noreferrer" class="pub-link">Read Articles →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── FEATURED WRITING ────────────────────────────── -->
+  <section class="full-bleed grey" id="writing">
+    <p class="sec-eyebrow">Latest Articles</p>
+    <h2 class="sec-title">Featured Writing</h2>
+    <p class="sec-sub">Click any article to preview it, then jump to the full read.</p>
+
+    <div class="articles-grid" id="artGrid" role="list"></div>
+
+    <div class="see-more-row">
+      <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="btn-grad">All Aadhunik Articles</a>
+      <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="btn-ghost">Sociobits →</a>
+      <a href="https://aichatmates.com/author/divyanshi/" target="_blank" rel="noopener noreferrer" class="btn-ghost">AI ChatMates →</a>
+      <a href="https://medium.com/@divyanshi_46473" target="_blank" rel="noopener noreferrer" class="btn-ghost">Medium →</a>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ─────────────────────────────────────── -->
+  <section class="full-bleed dark" id="contact">
+    <p class="sec-eyebrow">Get In Touch</p>
+    <div class="contact-scene">
+      <div class="contact-card">
+        <h2>Let's Create Together.</h2>
+        <p>I'm looking for internship opportunities in Marketing, Copywriting, Digital Marketing, and Content Strategy.</p>
+        <p>If you're building something interesting, I'd love to be part of it.</p>
+        <p class="contact-email">divyanshisinghh01@gmail.com</p>
+        <a
+          href="mailto:divyanshisinghh01@gmail.com?subject=Hey%20Divyanshi%2C%20let's%20connect!&body=Hi%20Divyanshi%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20an%20opportunity%20with%20you."
+          class="btn-big"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Say Hello →</a>
+
+        <nav class="c-links" aria-label="Social and publication links">
+          <a href="https://divyanshisingh.journoportfolio.com/" target="_blank" rel="noopener noreferrer" class="c-link">📁 Portfolio</a>
+          <a href="https://aadhunik.ai/blog/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="c-link">✍️ Aadhunik</a>
+          <a href="https://www.sociobits.org/author/divyanshisingh/" target="_blank" rel="noopener noreferrer" class="c-link">📰 Sociobits</a>
+          <a href="https://aichatmates.com/author/divyanshi/" target="_blank" rel="noopener noreferrer" class="c-link">🤖 AI ChatMates</a>
+          <a href="https://medium.com/@divyanshi_46473" target="_blank" rel="noopener noreferrer" class="c-link">📝 Medium</a>
+          <a href="https://dev.to/divyanshi_singh" target="_blank" rel="noopener noreferrer" class="c-link">👩‍💻 Dev.to</a>
+          <a href="https://www.linkedin.com/in/divyanshi-singh-373183297" target="_blank" rel="noopener noreferrer" class="c-link">💼 LinkedIn</a>
+          <a href="https://www.youtube.com/@divyanshisingh9258" target="_blank" rel="noopener noreferrer" class="c-link">▶ YouTube</a>
+        </nav>
+
+        <p class="c-location">📍 Mumbai, India · Open to remote &amp; on-site internships</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ──────────────────────────────────────── -->
+  <footer>
+    <span>© 2026 Divyanshi Singh</span>
+    <span>Content Creator · Storyteller · Strategist</span>
+  </footer>
+
+  <!-- ── FLOATING CTA ────────────────────────────────── -->
+  <button
+    class="float-hire"
+    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+    aria-label="Hire Divyanshi"
+  >✨ Hire Me</button>
+
+  <!-- ── ARTICLE PREVIEW MODAL ──────────────────────── -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mTitle" onclick="closeModal(event)">
+    <div class="modal" id="modal">
+      <button class="modal-close" onclick="closeMB()" aria-label="Close preview">✕</button>
+      <svg id="modalThumbSVG" class="modal-art-thumb" viewBox="0 0 580 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+      <div class="modal-body">
+        <p class="modal-pub" id="mPub"></p>
+        <span class="modal-ttag" id="mTag"></span>
+        <h3 class="modal-h" id="mTitle"></h3>
+        <p class="modal-desc" id="mDesc"></p>
+        <div class="modal-tags" id="mMeta"></div>
+        <div id="mActions"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
