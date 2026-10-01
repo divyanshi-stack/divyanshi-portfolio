@@ -147,6 +147,121 @@
     </div>
   </section>
 
+    <!-- REACH: article impressions marquee -->
+  <section class="full-bleed dark reach" id="reach">
+    <p class="sec-eyebrow">Reach</p>
+    <h2 class="sec-title">Articles people actually find.</h2>
+    <p class="sec-sub">My most-seen articles across Aadhunik.ai and AI ChatMates in search. Hover to pause, click any card to read.</p>
+    <div class="reach-row" id="reachTop" aria-label="Top articles by impressions"></div>
+  </section>
+  <style>
+  .reach{padding-left:0;padding-right:0}
+  .reach .sec-eyebrow,.reach .sec-title,.reach .sec-sub{padding:0 clamp(1.5rem,5vw,3rem)}
+  .reach-row{display:flex;width:100%;overflow:hidden;margin-bottom:1rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .reach-track{display:flex;gap:1rem;padding-right:1rem;flex-shrink:0;min-width:100%;animation:reachScroll var(--dur,80s) linear infinite}
+  .reach-row.reverse .reach-track{animation-direction:reverse}
+  .reach-row:hover .reach-track,.reach-row:focus-within .reach-track{animation-play-state:paused}
+  @keyframes reachScroll{to{transform:translateX(-100%)}}
+  .reach-card{flex:0 0 270px;display:flex;flex-direction:column;text-align:left;padding:1.1rem 1.2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;color:#f5f5f7;cursor:pointer;transition:transform .26s,border-color .26s,box-shadow .26s}
+  .reach-card:hover,.reach-card:focus-visible{transform:translateY(-5px);border-color:rgba(192,132,252,.35);box-shadow:0 18px 55px rgba(0,0,0,.55);outline:none}
+  .reach-tag{align-self:flex-start;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:.16rem .55rem;border-radius:999px;margin-bottom:.65rem;font-weight:600;background:linear-gradient(90deg,#7c3aed,#9333ea)}
+  .reach-tag.chatmates{background:linear-gradient(90deg,#db2777,#e879a8)}
+  .reach-title2{font-size:.88rem;font-weight:600;line-height:1.5;flex:1;color:#f5f5f7}
+  .reach-foot{display:flex;justify-content:space-between;align-items:center;margin-top:.85rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.07)}
+  .reach-imp{font-size:.78rem;font-weight:700;background:linear-gradient(135deg,#c084fc,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .reach-imp i{font-style:normal;font-weight:400;-webkit-text-fill-color:rgba(255,255,255,.35);color:rgba(255,255,255,.35)}
+  .reach-arrow{font-size:.72rem;color:#c084fc;opacity:0;transition:opacity .2s}
+  .reach-card:hover .reach-arrow,.reach-card:focus-visible .reach-arrow{opacity:1}
+  @media (prefers-reduced-motion:reduce){.reach-row{overflow-x:auto}.reach-track{animation:none}.reach-track[aria-hidden]{display:none}}
+  </style>
+  <script>
+(function(){
+var SITES={
+  a:{base:'https://aadhunik.ai/blog/',label:'Aadhunik.ai',cls:''},
+  c:{base:'https://aichatmates.com/',label:'AI ChatMates',cls:' chatmates'}
+};
+// [slug, title, impressions, site]  (site omitted = Aadhunik)
+// ChatMates impressions = Google + Bing combined
+var A=[
+// ── Aadhunik.ai ──
+['complete-list-of-grok-ai-companions','Complete List of Grok AI Companions',13709],
+['claude-ai-pricing-free-vs-paid-plans','Claude AI Pricing: Free vs Paid Plans',5100],
+['spicychat-ai-review','SpicyChat AI Review',4323],
+['claude-ai-models-comparison-guide','Claude AI Models Comparison Guide',4254],
+['xchar-ai-review','xchar.ai Review',3675],
+['gay-ai-chatbots','Gay AI Chatbots',3548],
+['nectar-ai-review','Nectar AI Review',3410],
+['best-free-ai-video-editing-tools','Best Free AI Video Editing Tools',2606],
+['ai-chatbot-with-unlimited-messages','AI Chatbots With Unlimited Messages',2453],
+['swipey-ai-review','Swipey AI Review',1882],
+['grok-ai-companions-characters','Grok AI Companions: Characters',1794],
+['best-ai-tools-for-stalking','Best AI Tools for Stalking',1560],
+['best-nsfw-ai-chatbot-apps','Best NSFW AI Chatbot Apps',1103],
+['ai-tools-for-real-life-problems','AI Tools for Real-Life Problems',1100],
+['best-ai-tools-for-crypto-trading','Best AI Tools for Crypto Trading',890],
+['how-to-use-ai-for-productivity','How to Use AI for Productivity',760],
+['infatuated-ai-review','Infatuated AI Review',729],
+['which-ai-chatbot-is-the-best-grok-chatgpt-gemini','Which AI Chatbot Is the Best: Grok, ChatGPT, Gemini?',652],
+['veed-io-honest-review','VEED.io Honest Review',633],
+['best-lesbian-ai-chatbots','Best Lesbian AI Chatbots',573],
+['gay-ai-roleplay-apps','Gay AI Roleplay Apps',544],
+['elon-musk-ai-projects-grok-optimus','Elon Musk AI Projects: Grok, Optimus & More',524],
+['best-ai-gay-erotica-apps','Best AI Gay Erotica Apps',516],
+
+// ── AI ChatMates ──
+['lucid-dream-telegram-alternatives/','Lucid Dream Telegram Alternatives',24918,'c'],
+['candy-ai-vs-ourdream-ai/','Candy AI vs OurDream AI',9799,'c'],
+['best-free-telegram-ai-girlfriend-bots/','Best Free Telegram AI Girlfriend Bots',9642,'c'],
+['best-18-plus-telegram-bots/','Best 18+ Telegram Bots',8063,'c'],
+['best-telegram-ai-girlfriend-bots/','Best Telegram AI Girlfriend Bots',7682,'c'],
+['lucid-dreams-telegram-bot/','Lucid Dreams Telegram Bot',7010,'c'],
+['best-nsfw-ai-voice-chat-apps/','Best NSFW AI Voice Chat Apps',6894,'c'],
+['best-ai-trans-companion-apps/','Best AI Trans Companion Apps',4377,'c'],
+['best-telegram-ai-boyfriend-for-gay-users/','Best Telegram AI Boyfriend for Gay Users',4301,'c'],
+['swipey-ai-review/','Swipey AI Review',3700,'c'],
+['virtual-girlfriend-vr-experiences/','Virtual Girlfriend VR Experiences',2311,'c'],
+['best-gay-ai-chatbots-sexting/','Best Gay AI Chatbots for Sexting',2271,'c'],
+['discreet-ai-chatbots-lesbian-users/','Discreet AI Chatbots for Lesbian Users',2145,'c'],
+['shemale-ai-review-the-best-trans-ai-chatbot-or-just-hype/','Shemale AI Review: Best Trans AI Chatbot or Just Hype?',2056,'c'],
+['top-6-ai-gay-chatbots-to-explore-kinks-safely-and-on-your-terms/','Top 6 AI Gay Chatbots to Explore Kinks Safely',1698,'c'],
+['best-erotic-ai-gay-apps/','Best Erotic AI Gay Apps',1647,'c'],
+['spicy-chat-ai-telegram-bots/','Spicy Chat AI Telegram Bots',1517,'c'],
+['candy-ai-vs-secret-desires-ai/','Candy AI vs Secret Desires AI',1500,'c'],
+['best-telegram-ai-boyfriend/','Best Telegram AI Boyfriend',1441,'c'],
+['best-nsfw-anime-ai-chat-apps-uncensored-picks/','Best NSFW Anime AI Chat Apps',1100,'c']
+].sort(function(a,b){return b[2]-a[2]});
+
+// Rounds DOWN: 24,918 -> 24,000+ | 9,799 -> 9,500+ | 1,517 -> 1,500+
+function fmt(n){
+  var step=n>=100000?10000:n>=10000?1000:n>=1000?500:n>=100?50:10;
+  return (Math.floor(n/step)*step).toLocaleString('en-US')+'+';
+}
+function card(a){
+  var s=SITES[a[3]||'a'];
+  var e=document.createElement('a');
+  e.className='reach-card';
+  e.href=s.base+a[0]+(a[3]?'':'/');
+  e.target='_blank';e.rel='noopener noreferrer';
+  var imp=a[2]?'<span class="reach-imp">'+fmt(a[2])+' <i>impressions</i></span>':'<span class="reach-imp"><i>Read article</i></span>';
+  e.innerHTML='<span class="reach-tag'+s.cls+'">'+s.label+'</span><span class="reach-title2"></span><div class="reach-foot">'+imp+'<span class="reach-arrow">Read →</span></div>';
+  e.querySelector('.reach-title2').textContent=a[1];
+  return e;
+}
+function build(id,list,dur){
+  var row=document.getElementById(id);
+  for(var i=0;i<2;i++){            // two identical tracks = seamless loop
+    var t=document.createElement('div');
+    t.className='reach-track';
+    t.style.setProperty('--dur',dur+'s');
+    if(i)t.setAttribute('aria-hidden','true');
+    list.forEach(function(a){var c=card(a);if(i)c.tabIndex=-1;t.appendChild(c)});
+    row.appendChild(t);
+  }
+}
+build('reachTop',A,110);
+})();
+</script>
+
   <!-- PUBLICATIONS -->
   <section class="full-bleed dark">
     <p class="sec-eyebrow">Where I Write</p>
